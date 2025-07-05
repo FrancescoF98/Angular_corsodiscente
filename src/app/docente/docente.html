@@ -1,0 +1,24 @@
+<div class="table-container">
+    <h2 class="title">Lista Docenti</h2>
+    <table class="tabella">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (docente of docenti(); track docente.id) {
+                <tr>
+                    <td>{{ docente.id }}</td>
+                    <td>{{ docente.nome }}</td>
+                    <td>{{ docente.cognome }}</td>
+                </tr>
+            }
+            @empty {
+                <div>No posts</div>
+            }
+        </tbody>
+    </table>
+</div>

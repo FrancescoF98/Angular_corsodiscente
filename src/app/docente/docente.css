@@ -1,0 +1,47 @@
+
+/* Title */
+.title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+/* Container for responsiveness */
+.table-container {
+  overflow-x: auto;
+  margin: 1rem 0;
+  padding: 3rem;
+}
+
+/* Base table style */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table header */
+thead {
+  background: linear-gradient(to right, #4f46e5, #dc52b7);
+  color: white;
+  text-align: left;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+/* Zebra striping */
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover effect */
+tbody tr:hover {
+  background-color: #f1f5f9;
+  transition: background 0.3s;
+}

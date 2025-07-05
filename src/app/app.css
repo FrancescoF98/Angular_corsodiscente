@@ -1,0 +1,6 @@
+.placeholder {
+    background: linear-gradient(180deg, #ffffff, #ffafe0);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}

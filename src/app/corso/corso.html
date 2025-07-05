@@ -1,0 +1,26 @@
+<div class="table-container">
+    <h2 class="title">Lista Corsi</h2>
+    <table class="tabella">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Anno Accademico</th>
+                <th>Docente</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (corso of corsi(); track corso.id) {
+                <tr>
+                    <td>{{ corso.id }}</td>
+                    <td>{{ corso.nome }}</td>
+                    <td>{{ corso.anno_accademico }}</td>
+                    <td>{{ corso.docente_nome }} {{ corso.docente_cognome }}</td>
+                </tr>
+            }
+            @empty {
+                <div>No posts</div>
+            }
+        </tbody>
+    </table>
+</div>

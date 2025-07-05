@@ -1,0 +1,30 @@
+<div class="table-container">
+    <h2 class="title">Lista Discenti</h2>
+    <table class="tabella">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Matricola</th>
+                <th>Età</th>
+                <th>Città di Residenza</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (discente of discenti(); track discente.id) {
+                <tr>
+                    <td>{{ discente.id }}</td>
+                    <td>{{ discente.nome }}</td>
+                    <td>{{ discente.cognome }}</td>
+                    <td>{{ discente.matricola }}</td>
+                    <td>{{ discente.eta }}</td>
+                    <td>{{ discente.citta_residenza }}</td>
+                </tr>
+            }
+            @empty {
+                <div>No posts</div>
+            }
+        </tbody>
+    </table>
+</div>
