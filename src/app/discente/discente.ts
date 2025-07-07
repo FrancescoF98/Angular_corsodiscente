@@ -3,7 +3,7 @@ import { Component, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 
-interface DiscenteDTO {
+export interface DiscenteDTO {
   id: number;
   nome: string;
   cognome: string;

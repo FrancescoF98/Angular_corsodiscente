@@ -3,23 +3,41 @@
     <table class="tabella">
         <thead>
             <tr>
+                <th></th>
                 <th>Id</th>
                 <th>Nome</th>
                 <th>Anno Accademico</th>
                 <th>Docente</th>
+                <th>Discenti</th>
             </tr>
         </thead>
         <tbody>
             @for (corso of corsi(); track corso.id) {
                 <tr>
+                    <td>#{{ $index+1 }}</td>
                     <td>{{ corso.id }}</td>
                     <td>{{ corso.nome }}</td>
                     <td>{{ corso.anno_accademico }}</td>
                     <td>{{ corso.docente_nome }} {{ corso.docente_cognome }}</td>
+                    <td>
+                        <table>
+                            <thead></thead>
+                            <tbody>
+                                @for (discente of corso.discenti; track discente.id) {
+                                    <tr>
+                                        <td>{{discente.nome}} {{ discente.cognome }}</td>
+                                    </tr>
+                                }
+                                @empty {
+                                    <div>Nessun discente.</div>
+                                }
+                            </tbody>
+                        </table>
+                    </td>
                 </tr>
             }
             @empty {
-                <div>No posts</div>
+                <div>Nessun corso da visualizzare.</div>
             }
         </tbody>
     </table>

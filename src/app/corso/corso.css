@@ -9,7 +9,8 @@
 .table-container {
   overflow-x: auto;
   margin: 1rem 0;
-  padding: 3rem;
+  padding: 10rem;
+  padding-top: 1rem;
 }
 
 /* Base table style */

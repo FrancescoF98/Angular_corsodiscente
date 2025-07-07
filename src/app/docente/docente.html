@@ -3,22 +3,35 @@
     <table class="tabella">
         <thead>
             <tr>
+                <th></th>
                 <th>Id</th>
                 <th>Nome</th>
                 <th>Cognome</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @for (docente of docenti(); track docente.id) {
                 <tr>
+                    <td>#{{ $index+1 }}</td>
                     <td>{{ docente.id }}</td>
                     <td>{{ docente.nome }}</td>
                     <td>{{ docente.cognome }}</td>
+                    <td><button class="btn-delete" (click)="eliminaDocente(docente.id)">🗑 Elimina</button></td>
                 </tr>
             }
             @empty {
-                <div>No posts</div>
+                <div>Nessun docente da visualizzare.</div>
             }
+            <!-- <tr>
+                <td></td>
+                <td></td>
+                <td><input type="text" [(ngModel)]="new_docente_nome"></td>
+                <td><input type="text" [(ngModel)]="new_docente_cognome"></td>
+                <td><button class="btn-delete" (click)="nuovoDocente(new_docente_nome, new_docente_cognome)">Crea nuovo</button></td>
+            </tr> -->
         </tbody>
     </table>
+    <br>
+    <a class="btn-new" routerLink="/docente-new">Aggiungi docente</a>
 </div>

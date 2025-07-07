@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { DiscenteDTO } from '../discente/discente';
 
 interface CorsoDTO {
   id: number,
@@ -9,6 +10,7 @@ interface CorsoDTO {
   idDoc: number,
   docente_nome: string,
   docente_cognome: string
+  discenti: DiscenteDTO[],
 }
 
 @Component({
