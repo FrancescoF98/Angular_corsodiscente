@@ -3,35 +3,90 @@
     <table class="tabella">
         <thead>
             <tr>
-                <th></th>
-                <th>Id</th>
+                <th style="width: 5%;"></th>
+                <th style="width: 5%;">Id</th>
                 <th>Nome</th>
                 <th>Cognome</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
+
+            <!-- Se è in modalità MODIFICA -->
+            @if (modifica_attiva == true) {
+                @for (docente of docenti(); track docente.id) {
+                    @if (id_docente_in_modifica == docente.id){
+                        <tr>
+                            <td>#{{ $index+1 }}</td>
+                            <td>{{ docente.id }}</td>
+                            <td><input type="text" placeholder="Nome" [(ngModel)]="modifica_nuovo_nome"></td>
+                            <td><input type="text" placeholder="Cognome" [(ngModel)]="modifica_nuovo_cognome"></td>
+                            <td>
+                                <button class="btn-delete" (click)="attivaModifica(docente.id, docente.nome, docente.cognome)">Annulla</button>
+                                <button class="btn-new" (click)="modificaDocente(docente.id, modifica_nuovo_nome,modifica_nuovo_cognome)">Conferma Modifica</button>
+                            </td>
+                        </tr>    
+                    }
+                    @else {
+                        <tr>
+                            <td>#{{ $index+1 }}</td>
+                            <td>{{ docente.id }}</td>
+                            <td>{{ docente.nome }}</td>
+                            <td>{{ docente.cognome }}</td>
+                            <td>
+                                <button class="btn-delete" (click)="eliminaDocente(docente.id)">Elimina</button>
+                                <button class="btn-new" (click)="attivaModifica(docente.id, docente.nome, docente.cognome)">Modifica</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                @empty {
+                    <div>Nessun docente da visualizzare.</div>
+                }
+            }
+            <!-- Se la modifica è disattiva -->
+            @else {
+                @for (docente of docenti(); track docente.id) {
+                    <tr>
+                        <td>#{{ $index+1 }}</td>
+                        <td>{{ docente.id }}</td>
+                        <td>{{ docente.nome }}</td>
+                        <td>{{ docente.cognome }}</td>
+                        <td>
+                            <button class="btn-delete" (click)="eliminaDocente(docente.id)">Elimina</button>
+                            <button class="btn-new" (click)="attivaModifica(docente.id, docente.nome, docente.cognome)">Modifica</button>
+                        </td>
+                    </tr>
+                }
+                @empty {
+                    <div>Nessun docente da visualizzare.</div>
+                }
+            }
+        </tbody>
+        
+        <!-- backup  -->
+        <!-- <tbody>
             @for (docente of docenti(); track docente.id) {
                 <tr>
                     <td>#{{ $index+1 }}</td>
                     <td>{{ docente.id }}</td>
                     <td>{{ docente.nome }}</td>
                     <td>{{ docente.cognome }}</td>
-                    <td><button class="btn-delete" (click)="eliminaDocente(docente.id)">🗑 Elimina</button></td>
+                    <td>
+                        <button class="btn-delete" (click)="eliminaDocente(docente.id)">🗑 Elimina</button>
+                        <button class="btn-new" (click)="changePage('/docente-modify')">Modifica Docente</button>
+                    </td>
                 </tr>
             }
             @empty {
                 <div>Nessun docente da visualizzare.</div>
             }
-            <!-- <tr>
-                <td></td>
-                <td></td>
-                <td><input type="text" [(ngModel)]="new_docente_nome"></td>
-                <td><input type="text" [(ngModel)]="new_docente_cognome"></td>
-                <td><button class="btn-delete" (click)="nuovoDocente(new_docente_nome, new_docente_cognome)">Crea nuovo</button></td>
-            </tr> -->
-        </tbody>
+        </tbody> -->
+
     </table>
     <br>
-    <a class="btn-new" routerLink="/docente-new">Aggiungi docente</a>
+    <div>
+        <!-- <a class="btn-new" routerLink="/docente-new">Aggiungi docente</a> -->
+        <button class="btn-new" (click)="changePage('/docente-new')">Aggiungi Docente</button>
+    </div>
 </div>

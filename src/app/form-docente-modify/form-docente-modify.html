@@ -1,9 +1,9 @@
 <div class="form-container">
   <div class="form-container2">
     
-    <h2>Nuovo Docente</h2>
+    <h2>Modifica Docente</h2>
 
-    <form ngNativeValidate #form="ngForm" class="actual_form" (ngSubmit)="nuovoDocente(new_docente_nome, new_docente_cognome)">
+    <form ngNativeValidate #form="ngForm" class="actual_form" (ngSubmit)="modificaDocente(1, new_docente_nome, new_docente_cognome)">
       <label for="new_docente_nome">Nome:</label>
       <input type="text" id="new_docente_nome" name="new_docente_nome" [(ngModel)]="new_docente_nome" placeholder="es. Mario" required/>
 
@@ -17,10 +17,10 @@
         placeholder="es. Rossi"
       />
       <br>
-      <button type="submit">Crea Docente</button>
+      <button type="submit">Modifica Docente</button>
       
-      <!-- <button type="submit" [disabled]="form.invalid">Crea Docente</button> -->
     </form>
+
     <button class="back-button" (click)="goBack()">Annulla</button>
     
   </div>

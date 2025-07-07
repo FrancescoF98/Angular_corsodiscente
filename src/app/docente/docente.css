@@ -17,12 +17,14 @@
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   overflow: hidden;
 }
+
 
 /* Table header */
 thead {

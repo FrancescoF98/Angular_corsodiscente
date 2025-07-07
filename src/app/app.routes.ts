@@ -4,6 +4,7 @@ import { Corso } from './corso/corso';
 import { Docente } from './docente/docente';
 import { Discente } from './discente/discente';
 import { FormDocenteNew } from './form-docente-new/form-docente-new';
+import { FormDocenteModify } from './form-docente-modify/form-docente-modify';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -11,5 +12,6 @@ export const routes: Routes = [
     { path: 'corso', component: Corso },
     { path: 'docente', component: Docente },
     { path: 'docente-new', component: FormDocenteNew },
+    { path: 'docente-modify', component: FormDocenteModify },
     { path: 'discente', component: Discente },
 ];
