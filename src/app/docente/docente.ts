@@ -52,10 +52,11 @@ export class Docente {
     this.modifica_nuovo_cognome = placeholder_cognome;
   }
 
+  
   //---------------------- CRUD ----------------------
   // Get
   loadDocenti() {
-    this.http.get<DocenteDTO[]>('http://localhost:8081/docenti/lista')
+    this.http.get<DocenteDTO[]>('http://localhost:8082/docenti/lista')
             .subscribe(res => this.docenti.set(res))
   }
   
@@ -69,7 +70,7 @@ export class Docente {
       cognome: cognome,
     }
 
-    const url = 'http://localhost:8081/docenti/' + id.toString() + '/edit'
+    const url = 'http://localhost:8082/docenti/' + id.toString() + '/edit'
 
     this.http.put<void>(url, nuovoDocente).subscribe({
       next: () => {
@@ -90,7 +91,7 @@ export class Docente {
 
   // Delete
   eliminaDocente(id: number) {
-    let indirizzo = `http://localhost:8081/docenti/${id}/delete`;
+    let indirizzo = `http://localhost:8082/docenti/${id}/delete`;
     this.http.delete<DocenteDTO[]>(indirizzo)
             .subscribe({
               next: () => {

@@ -1,0 +1,23 @@
+<div class="flex justify-center mt-10">
+  <div class="card w-96 bg-base-100 shadow-xl p-6">
+    <h2 class="text-xl font-bold mb-4">Registrazione</h2>
+
+    <form (ngSubmit)="signup()">
+      <div class="form-control mb-3">
+        <label class="label"><span class="label-text">Username</span></label>
+        <input [(ngModel)]="username" name="username" class="input input-bordered" required />
+      </div>
+
+      <div class="form-control mb-4">
+        <label class="label"><span class="label-text">Password</span></label>
+        <input [(ngModel)]="password" name="password" type="password" class="input input-bordered" required />
+      </div>
+
+      <!-- <div *ngIf="errore" class="text-red-500 mb-2">{{ errore }}</div>
+      <div *ngIf="successo" class="text-green-500 mb-2">{{ successo }}</div> -->
+
+      <button type="submit" class="btn btn-primary w-full">Registrati</button>
+      <p class="text-sm mt-3">Hai già un account? <a routerLink="/" class="link link-primary">Accedi</a></p>
+    </form>
+  </div>
+</div>
