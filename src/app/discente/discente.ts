@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Docente } from '../docente/docente';
 
 
 export interface DiscenteDTO {

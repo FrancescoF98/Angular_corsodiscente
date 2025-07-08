@@ -21,7 +21,7 @@
                             <td>{{ docente.id }}</td>
                             <td><input type="text" placeholder="Nome" [(ngModel)]="modifica_nuovo_nome"></td>
                             <td><input type="text" placeholder="Cognome" [(ngModel)]="modifica_nuovo_cognome"></td>
-                            <td>
+                            <td style="display: flex; justify-content: space-evenly;">
                                 <button class="btn-delete" (click)="attivaModifica(docente.id, docente.nome, docente.cognome)">Annulla</button>
                                 <button class="btn-new" (click)="modificaDocente(docente.id, modifica_nuovo_nome,modifica_nuovo_cognome)">Conferma Modifica</button>
                             </td>
@@ -33,7 +33,7 @@
                             <td>{{ docente.id }}</td>
                             <td>{{ docente.nome }}</td>
                             <td>{{ docente.cognome }}</td>
-                            <td>
+                            <td style="display: flex; justify-content: space-evenly;">
                                 <button class="btn-delete" (click)="eliminaDocente(docente.id)">Elimina</button>
                                 <button class="btn-new" (click)="attivaModifica(docente.id, docente.nome, docente.cognome)">Modifica</button>
                             </td>
@@ -52,7 +52,7 @@
                         <td>{{ docente.id }}</td>
                         <td>{{ docente.nome }}</td>
                         <td>{{ docente.cognome }}</td>
-                        <td>
+                        <td style="display: flex; justify-content: space-evenly;">
                             <button class="btn-delete" (click)="eliminaDocente(docente.id)">Elimina</button>
                             <button class="btn-new" (click)="attivaModifica(docente.id, docente.nome, docente.cognome)">Modifica</button>
                         </td>

@@ -104,3 +104,9 @@ tbody tr:hover {
   outline: none;
   box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.4);
 }
+
+/* input */
+input {
+  /* padding: 0.5rem 1rem; */
+  font-size: 0.95rem;
+}
