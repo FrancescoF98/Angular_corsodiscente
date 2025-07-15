@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Auth } from '../auth';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -15,18 +16,25 @@ export class Login {
   password = "";
   errore = "";
 
-  constructor(private auth: Auth, private router: Router) {}
+  constructor(private auth: Auth, private router: Router, private http:HttpClient) { }
+
 
   login() {
-    this.auth.login({ username: this.username, password: this.password }).subscribe({
+    const credenziali = {
+      username: this.username,
+      password: this.password
+    };
+
+    this.http.post<any>('http://localhost:4200/auth/login', credenziali).subscribe({
       next: (res) => {
-        sessionStorage.setItem('token', res.token);
-        this.router.navigate(['/docente']);
+        console.log(res.jwt)
+        sessionStorage.setItem('token', res.jwt);
+        this.router.navigate(['/docenti']);
+
       },
-      error: (err) => {
-        this.errore = 'Credenziali errate. Riprova o registrati.';
-      },
+      error: () => {
+        this.errore = 'Credenziali errate o utente inesistente';
+      }
     });
   }
-
 }
